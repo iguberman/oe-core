@@ -240,12 +240,6 @@ then
 	killall lighttpd >/dev/null 2>&1
 fi
 
-# Start avahi-daemon
-ps aux | grep "avahi-daemon" | grep -v -q "grep"
-if [ $? -ne 0 ]
-then
-	/etc/init.d/avahi-daemon start >/dev/null 2>&1
-fi
 
 LSB_START_CMD="/opt/lsb/test/manager/bin/dist-checker-start.pl"
 LSB_STOP_CMD="/opt/lsb/test/manager/bin/dist-checker-stop.pl"

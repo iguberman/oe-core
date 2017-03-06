@@ -41,7 +41,6 @@ PACKAGES = ' \
             ${@bb.utils.contains("DISTRO_FEATURES", "nfs", "packagegroup-base-nfs", "", d)} \
             ${@bb.utils.contains("DISTRO_FEATURES", "ppp", "packagegroup-base-ppp", "", d)} \
             ${@bb.utils.contains("DISTRO_FEATURES", "smbfs", "packagegroup-base-smbfs", "", d)} \
-            ${@bb.utils.contains("DISTRO_FEATURES", "zeroconf", "packagegroup-base-zeroconf", "", d)} \
             \
             '
 
@@ -81,7 +80,6 @@ RDEPENDS_packagegroup-base = "\
     ${@bb.utils.contains('DISTRO_FEATURES', 'ipv6', 'packagegroup-base-ipv6', '',d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'ipsec', 'packagegroup-base-ipsec', '',d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'ppp', 'packagegroup-base-ppp', '',d)} \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'zeroconf', 'packagegroup-base-zeroconf', '',d)} \
     "
 
 
@@ -344,13 +342,6 @@ RDEPENDS_packagegroup-base-nfs = "\
 
 RRECOMMENDS_packagegroup-base-nfs = "\
     kernel-module-nfs "
-
-SUMMARY_packagegroup-base-zeroconf = "Zeroconf support"
-RDEPENDS_packagegroup-base-zeroconf = "\
-    avahi-daemon"
-RDEPENDS_packagegroup-base-zeroconf_append_libc-glibc = "\
-    libnss-mdns \
-    "
 
 SUMMARY_packagegroup-base-ipv6 = "IPv6 support"
 RDEPENDS_packagegroup-base-ipv6 = "\

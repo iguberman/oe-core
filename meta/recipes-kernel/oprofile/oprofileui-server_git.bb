@@ -13,7 +13,7 @@ DEPENDS += "intltool-native gettext-native"
 
 EXTRA_OECONF += "--disable-client --enable-server"
 
-RDEPENDS_${PN} = "oprofile avahi-daemon"
+RDEPENDS_${PN} = "oprofile"
 
 do_install_append() {
 	install -d ${D}${sysconfdir}/init.d

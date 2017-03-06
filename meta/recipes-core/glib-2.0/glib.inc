@@ -27,7 +27,7 @@ PACKAGES =+ "${PN}-utils ${PN}-bash-completion ${PN}-codegen"
 LEAD_SONAME = "libglib-2.0.*"
 FILES_${PN}-utils = "${bindir}/* ${datadir}/glib-2.0/gettext"
 
-inherit autotools gettext gtk-doc pkgconfig ptest-gnome
+inherit autotools gettext pkgconfig 
 
 S = "${WORKDIR}/glib-${PV}"
 
@@ -88,7 +88,6 @@ do_install_append_class-target() {
 }
 
 RDEPENDS_${PN}-ptest += "\
-            gnome-desktop-testing \
             tzdata \
             tzdata-americas \
             tzdata-asia \

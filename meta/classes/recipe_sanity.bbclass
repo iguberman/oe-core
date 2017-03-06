@@ -46,7 +46,7 @@ def can_use_autotools_base(cfgdata, d):
     if not bb.data.inherits_class("autotools", d):
         return False
 
-    for i in ["autoreconf"] + ["%s_do_configure" % cls for cls in ["gnomebase", "gnome", "e", "autotools", "efl", "gpephone", "openmoko", "openmoko2", "xfce", "xlibs"]]:
+    for i in ["autoreconf"] + ["%s_do_configure" % cls for cls in ["e", "autotools", "efl", "gpephone", "openmoko", "openmoko2", "xfce", "xlibs"]]:
         if cfg.find(i) != -1:
             return False
 
