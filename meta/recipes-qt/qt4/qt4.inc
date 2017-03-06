@@ -20,7 +20,7 @@ QT_PHONON ?= "-no-phonon"
 QT_DBUS ?= "-qdbus"
 QT_MULTIMEDIA ?= "${@bb.utils.contains('DISTRO_FEATURES', 'pulseaudio', '-pulseaudio', '-no-pulseaudio', d)}"
  
-QT_CONFIG_FLAGS += "-release -no-cups -reduce-relocations \
+QT_CONFIG_FLAGS += "-release -reduce-relocations \
                     -shared -no-nas-sound -no-nis \
                     -system-libjpeg -system-libpng -system-libtiff -system-zlib \
                     -no-pch -stl -glib -icu \

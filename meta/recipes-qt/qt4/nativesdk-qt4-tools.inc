@@ -31,7 +31,6 @@ EXTRA_OECONF = "-prefix ${prefix} \
                 -qt-libjpeg -system-zlib \
                 -no-libjpeg -no-libpng -no-libmng -no-libtiff \
                 -no-accessibility \
-                -no-cups \
                 -no-exceptions  \
                 -no-nas-sound \
                 -no-nis -no-openssl \

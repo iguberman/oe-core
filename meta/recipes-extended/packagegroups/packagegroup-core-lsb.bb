@@ -137,7 +137,6 @@ RDEPENDS_packagegroup-core-lsb-core = "\
     coreutils \
     cpio \
     cronie \
-    cups \
     diffutils \
     ed \
     glibc-utils \

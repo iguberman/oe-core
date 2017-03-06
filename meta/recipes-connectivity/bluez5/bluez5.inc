@@ -26,7 +26,6 @@ inherit autotools-brokensep pkgconfig systemd
 
 EXTRA_OECONF = "\
   --enable-tools \
-  --disable-cups \
   --enable-test \
   --enable-datafiles \
   ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '--enable-systemd', '--disable-systemd', d)} \

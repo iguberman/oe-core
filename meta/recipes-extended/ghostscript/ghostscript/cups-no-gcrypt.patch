@@ -14,7 +14,7 @@ Signed-off-by: Hongxu Jia <hongxu.jia@windriver.com>
  cups/libs/cups/http-private.h | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/cups/libs/cups/http-private.h b/cups/libs/cups/http-private.h
+# diff --git a/cups/libs/cups/http-private.h b/cups/libs/cups/http-private.h
 index 99a85c3..a674852 100644
 --- a/cups/libs/cups/http-private.h
 +++ b/cups/libs/cups/http-private.h

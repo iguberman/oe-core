@@ -9,7 +9,7 @@ to convert the incoming PostScript data into the printer's native \
 format using a printer-specific, but spooler-independent PPD file. \
 "
 
-DEPENDS += "cups perl libxml2"
+DEPENDS += "perl libxml2"
 PR = "r1"
 
 LICENSE = "GPLv2+"
@@ -30,12 +30,6 @@ EXTRA_OECONF += "--disable-file-converter-check --with-file-converter=texttops"
 
 do_configure_prepend() {
     export PERL="${bindir}/env perl"
-    export CUPS_SERVERBIN=${exec_prefix}/lib/cups       # /usr/lib NOT libdir
 }
 
-do_install_append_linuxstdbase() {
-    install -d ${D}${exec_prefix}/lib/cups/filter
-    ln -sf ${bindir}/foomatic-rip ${D}${exec_prefix}/lib/cups/filter
-}
-
-FILES_${PN} += "${exec_prefix}/lib/cups/ ${exec_prefix}/lib/ppr/"
+FILES_${PN} += "${exec_prefix}/lib/ppr/"

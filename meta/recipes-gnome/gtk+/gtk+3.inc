@@ -27,7 +27,6 @@ EXTRA_OECONF += " \
                  --disable-glibtest \
                  --disable-xinerama \
                  --enable-modules \
-                 --disable-cups \
                  --disable-introspection \
 "
 

@@ -13,7 +13,7 @@ SECTION = "console/utils"
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=b17cea54743435ab2a581c237bea294a"
 
-DEPENDS = "ghostscript-native tiff jpeg fontconfig cups"
+DEPENDS = "ghostscript-native tiff jpeg fontconfig"
 DEPENDS_class-native = ""
 
 SRC_URI_BASE = "http://downloads.ghostscript.com/public/ghostscript-${PV}.tar.gz \
@@ -26,7 +26,6 @@ SRC_URI = "${SRC_URI_BASE} \
            file://ghostscript-9.02-prevent_recompiling.patch \
            file://ghostscript-9.02-genarch.patch \
            file://objarch.h \
-           file://cups-no-gcrypt.patch \
            "
 
 SRC_URI_class-native = "${SRC_URI_BASE} \
@@ -39,8 +38,7 @@ SRC_URI[sha256sum] = "746d77280cca8afdd3d4c2c1389e332ed9b0605bd107bcaae1d761b061
 
 EXTRA_OECONF = "--without-x --with-system-libtiff --without-jbig2dec \
                 --with-fontpath=${datadir}/fonts \
-                --without-libidn --with-cups-serverbin=${exec_prefix}/lib/cups \
-                --with-cups-datadir=${datadir}/cups \
+                --without-libidn \
                 ${@base_conditional('SITEINFO_ENDIANNESS', 'le', '--enable-little-endian', '--enable-big-endian', d)} \
                 "
 
@@ -48,12 +46,12 @@ EXTRA_OECONF_append_mips = " --with-large_color_index=0"
 EXTRA_OECONF_append_mipsel = " --with-large_color_index=0"
 
 # Explicity disable libtiff, fontconfig,
-# freetype, cups for ghostscript-native
+# freetype for ghostscript-native
 EXTRA_OECONF_class-native = "--without-x --with-system-libtiff=no \
                              --without-jbig2dec \
                              --with-fontpath=${datadir}/fonts \
                              --without-libidn --disable-fontconfig \
-                             --disable-freetype --disable-cups"
+                             --disable-freetype "
 
 # This has been fixed upstream but for now we need to subvert the check for time.h
 # http://bugs.ghostscript.com/show_bug.cgi?id=692443
