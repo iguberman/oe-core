@@ -65,35 +65,6 @@ class SystemdBasicTests(SystemdTest):
         self.assertTrue(match, msg="Some systemd units failed:\n%s" % output)
 
 
-class SystemdServiceTests(SystemdTest):
-
-    def check_for_avahi(self):
-        if not self.hasPackage('avahi-daemon'):
-            raise unittest.SkipTest("Testcase dependency not met: need avahi-daemon installed on target")
-
-    @skipUnlessPassed('test_systemd_basic')
-    def test_systemd_status(self):
-        self.check_for_avahi()
-        self.systemctl('status --full', 'avahi-daemon.service')
-
-    @testcase(695)
-    @skipUnlessPassed('test_systemd_status')
-    def test_systemd_stop_start(self):
-        self.check_for_avahi()
-        self.systemctl('stop', 'avahi-daemon.service')
-        self.systemctl('is-active', 'avahi-daemon.service', expected=3, verbose=True)
-        self.systemctl('start','avahi-daemon.service')
-        self.systemctl('is-active', 'avahi-daemon.service', verbose=True)
-
-    @testcase(696)
-    @skipUnlessPassed('test_systemd_basic')
-    def test_systemd_disable_enable(self):
-        self.check_for_avahi()
-        self.systemctl('disable', 'avahi-daemon.service')
-        self.systemctl('is-enabled', 'avahi-daemon.service', expected=1)
-        self.systemctl('enable', 'avahi-daemon.service')
-        self.systemctl('is-enabled', 'avahi-daemon.service')
-
 class SystemdJournalTests(SystemdTest):
     @skipUnlessPassed('test_ssh')
     def test_systemd_journal(self):

@@ -31,7 +31,6 @@ REGEX_pn-sqlite3="releaselog/${COMMON_REGEX}.html"
 REGEX_URI_pn-dhcp = "ftp://ftp.isc.org/isc/dhcp/"
 REGEX_pn-dhcp="(?P<pver>\d+\.\d+\.(\d+?))/"
 
-REGEX_pn-foomatic-filters = "foomatic-filters-(?P<pver>((\d|\d\d)\.*)+)\.tar\.gz"
 REGEX_pn-xdg-utils = "xdg-utils-(?P<pver>((\d+[\.\-_]*)+)((rc|alpha|beta)\d+)?)\.(tar\.gz|tgz)"
 REGEX_pn-rpm="rpm-${COMMON_REGEX}-.*$"
 REGEX_pn-libtheora = "libtheora-(?P<pver>\d+(\.\d)+)\.(tar\.gz|tgz)"
