@@ -90,7 +90,8 @@ EXTRA_OECONF = "--disable-tests \
 EXTRA_OECONF_append_class-native = " --disable-selinux"
 
 PACKAGECONFIG ??= "${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)} \
-                   ${@bb.utils.contains('DISTRO_FEATURES', 'largefile', 'largefile', '', d)} \
+                   ${@bb.utils.contains('DISTRO_FEATURES', 'largefile', 'largefile', '', d)}"
+
 PACKAGECONFIG_class-native = ""
 PACKAGECONFIG_class-nativesdk = ""
 
